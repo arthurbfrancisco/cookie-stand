@@ -1,9 +1,9 @@
-// Seatle
+// Seattle
 
 let hours = ['6 a.m.', '7 a.m.', '8 a.m.', '9 a.m.', '10 a.m.', '11 a.m.', '12 p.m.', 
 '1 p.m.', '2 p.m.', '3 p.m.', '4 p.m.', '5 p.m.', '6 p.m.', '7 p.m.'];
 
-let seattleObj = {
+let SeattleObj = {
     name: 'Seattle',
     min: 23,
     max: 65,
@@ -16,20 +16,25 @@ let seattleObj = {
     },
 
     calculateCookiesPerHour: function () {
-        let randomNumberOfCustomers = this.generateRandomNumberOfCustomers();
-        console.log(randomNumberOfCustomers);
+        for (let i = 0; i < hours.length; i++) {
+            let randomNumberOfCustomers = this.generateRandomNumberOfCustomers();
+            let cookiesSoldPerHour = Math.round(randomNumberOfCustomers * this.avg);
+            this.cookiesSoldEachHourArray.push(cookiesSoldPerHour);
+            this.dailyTotal += cookiesSoldPerHour;
+        }
     }
 };
 
-console.log(seattleObj.generateRandomNumberOfCustomers());
-
+SeattleObj.calculateCookiesPerHour();
+console.log(SeattleObj.cookiesSoldEachHourArray);
+console.log(SeattleObj.dailyTotal);
 
 // // Tokyo
 
 // let hours = ['6 a.m.', '7 a.m.', '8 a.m.', '9 a.m.', '10 a.m.', '11 a.m.', '12 p.m.', 
 // '1 p.m.', '2 p.m.', '3 p.m.', '4 p.m.', '5 p.m.', '6 p.m.', '7 p.m.'];
 
-// let tokyoObj = {
+// let TokyoObj = {
 //     name: 'Tokyo',
 //     min: 3,
 //     max: 24,
@@ -54,8 +59,8 @@ console.log(seattleObj.generateRandomNumberOfCustomers());
 // let hours = ['6 a.m.', '7 a.m.', '8 a.m.', '9 a.m.', '10 a.m.', '11 a.m.', '12 p.m.', 
 // '1 p.m.', '2 p.m.', '3 p.m.', '4 p.m.', '5 p.m.', '6 p.m.', '7 p.m.'];
 
-// let dubaiObj = {
-//     name: 'Dubau',
+// let DubaiObj = {
+//     name: 'Dubai',
 //     min: 11,
 //     max: 38,
 //     avg: 3.7,
@@ -79,7 +84,7 @@ console.log(seattleObj.generateRandomNumberOfCustomers());
 // let hours = ['6 a.m.', '7 a.m.', '8 a.m.', '9 a.m.', '10 a.m.', '11 a.m.', '12 p.m.', 
 // '1 p.m.', '2 p.m.', '3 p.m.', '4 p.m.', '5 p.m.', '6 p.m.', '7 p.m.'];
 
-// let parisObj = {
+// let ParisObj = {
 //     name: 'Paris',
 //     min: 30,
 //     max: 28,
