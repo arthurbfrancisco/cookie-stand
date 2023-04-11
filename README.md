@@ -1,47 +1,93 @@
-# cookie-stand
+Code 201: Foundations of Software Development - Core Syllabus
+Course Information
+Course Level: Code 201
+Course Prerequisites
+Code 102
+Students with previous relevant or equivalent experience can test out of this requirement in their application.
 
-## lab-06_salmon-cookies
+Course Description
+This course guides students toward developing a well-rounded foundation of skills necessary for modern web development. These skills include HTML, CSS, and JavaScript coding; utilizing Git workflow processes, project organization, designing with wire-framing and employing introductory Agile development methods.
 
-### Salmon Cookies Sold 
+Program Learning Outcomes
+Builds a strong software development foundation and learn how to use HTML, CSS, JavaScript, and various libraries to create fully-functional web apps.
 
-### DOM and Objects JS HTML Inline 
+This course guides students toward developing a well-rounded foundation of skills necessary for modern web development. These skills include HTML, CSS, and JavaScript coding; utilizing Git workflow processes, project organization, designing with wireframing and employing introductory Agile development methods.
 
-**Sales Data**
-Within your javascript file, create separate JS object literals for each shop location. Each location will be responsible for generating sales data and providing output on an html document. You should be able to perform the following tasks in your javascript file:
+Student Learning Outcomes
+Upon satisfactory completion of this course, a student should be able to:
 
-Store the min/max hourly customers, and the average cookies per customer, in object properties.
-Use a method of that object to generate a random number of customers per hour. Objects/Math/random
-Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated.
-Store the results for each location in a separate array… perhaps as a property of the object representing that location.
-Display the values of each array as unordered lists in the browser.
-Calculating the sum of these hourly totals; your output for each location should look like this:
-
-Seattle
-
-6am: 16 cookies
-7am: 20 cookies
-8am: 35 cookies
-9am: 48 cookies
-10am: 56 cookies
-11am: 77 cookies
-12pm: 93 cookies
-1pm: 144 cookies
-2pm: 119 cookies
-3pm: 84 cookies
-4pm: 61 cookies
-5pm: 23 cookies
-6pm: 42 cookies
-7pm: 57 cookies
-Total: 875 cookies
-
-Location	Min / Cust	Max / Cust	Avg Cookie / Sale
-Seattle	23	65	6.3
-Tokyo	3	24	1.2
-Dubai	11	38	3.7
-Paris	20	38	2.3
-Lima	2	16	4.6
-
-These numbers are simply Pat’s estimates for now, but eventually, once there has been some history collected that provides more accurate numbers, we’ll want the ability to update these numbers for each location, and to add/remove locations. But we’ll not build all of that today. Make sure to make each location is its own JavaScript object.
-
-
-Author, Arthur B. Francisco
+Describe and Define
+Languages
+HTML
+Structure
+Text
+Links
+Images
+Tables
+HTML5
+Forms
+Process
+Design
+CSS
+Color
+Text
+Boxes
+Lists
+Tables
+Forms
+Grid Layouts
+Fluid Layouts
+Animations and Transitions
+JavaScript
+Loops
+Conditions
+Functions
+Objects (Including Properties and Methods)
+Object-Oriented Programming
+Object Extension with Prototypes
+Events, Event Listeners, and Event Handlers in Callback Functions
+DOM Manipulation and Traversal Using "Vanilla" JavaScript without jQuery
+Utilization of an external library such as ChartJS
+Local Storage and JSON
+The Basics of MVC
+Environments and Tools
+Unix and the Command Prompt
+Git and GitHub
+A Text Editor
+Chrome Dev Tools
+Execute
+Define the structure of a web page utilizing the semantic hierarchical structural conventions of HTML5.
+Apply CSS to style content with color, typography, and images.
+Apply CSS and HTML to implement page layout styles including grid, fluid, and responsive techniques.
+Utilize Javascript to make web projects interactive, such that user input is stored and processed to create updated and personalized content when a user interacts with a page.
+Write JavaScript that leverages the fundamentals of Computer Science, the Object-Oriented Programming paradigm, basic data types, data structures, and basic algorithms, so that the code is efficient, error-free, and matches commonly accepted standards and practices of syntax and style, as measured by the code’s functionality and ability to pass a code linter.
+Utilize industry-standard version control tools and workflows, including Git and GitHub, to write functional, properly styled code and to work efficiently and harmoniously in professional environments.
+Course Schedule
+Module 1
+Class #	Topic	Lab
+01	Introduction to Development	Web Site with proper HTML, CSS, JavaScript Structure
+02	Basics of HTML, CSS, JS	User input and output
+03	Control Flow; Box Model	Conditional logic
+04	Javascript Functions; Pair Programming	Encapsulate logic in functions
+05	Images, Color, Style; Branching	Fidelity; Practice JS and Git branching
+Module 2
+Class #	Topic	Lab
+06	Javascript Objects; The DOM	Generate and display data in the DOM
+07	OOP; HTML Tables	Convert literals to constructors; Dynamic table output
+08	CSS Layout: Flex	Wire-frame exercise; Styling
+09	HTML Forms & JavaScript Events	Form input + dynamic elements
+10	JS Debugging; CSS Layouts	Git Practice; JS Debugger; Generate markup from a mock-up
+Module 3
+Class #	Topic	Lab
+11	A/V; Accessibility; Math.random()	Selecting random options and Capturing user input
+12	3rd Party Libraries and Documentation	Integrating Chart.js
+13	Application State with Local Storage API	Storing/Retrieving data from local storage
+14	Psyhological Safety	Exploring an existing code base
+15	Project Kickoff	Merge conflict practice
+Module 4 - Final Project
+Class #	Deliverables
+16	Wireframes, User Stories, Architecture Plan, DevOps, Documentation, Agreements
+17	Phase 1
+18	MVP
+19	Final Polish, Presentation Practice
+20	Live Project Presentations
