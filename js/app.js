@@ -194,6 +194,8 @@ let LimaObj = {
     }
 }
 
+// call the calculateCookiesPerHour function on the LimaObj object
 LimaObj.calculateCookiesPerHour();
+// call the renderList function on the LimaObj object
 LimaObj.renderList();
 
