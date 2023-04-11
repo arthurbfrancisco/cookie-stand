@@ -1,0 +1,85 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+ 
+@arthurbfrancisco 
+codefellows
+/
+seattle-code-201d99
+Public
+Fork your own copy of codefellows/seattle-code-201d99
+Code
+Issues
+Pull requests
+Actions
+Projects
+Security
+Insights
+seattle-code-201d99/configs/.eslintrc.json
+@sheyna
+sheyna added configs.
+Latest commit 8173498 last week
+ History
+ 1 contributor
+40 lines (40 sloc)  735 Bytes
+ 
+
+{
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "impliedStrict": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "rules": {
+    "no-var": "error",
+    "eqeqeq": ["error", "always"],
+    "no-console": "off",
+    "no-undefined": "off",
+    "indent": ["error", 2],
+    "quotes": ["warn", "single"],
+    "no-multi-spaces": [
+      "warn",
+      {
+        "exceptions": {
+          "VariableDeclarator": true
+        }
+      }
+    ],
+    "no-trailing-spaces": "warn",
+    "new-cap": "warn",
+    "no-redeclare": [
+      "error",
+      {
+        "builtinGlobals": true
+      }
+    ],
+    "semi": [2, "always"],
+    "eol-last": "error"
+  }
+}
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+seattle-code-201d99/.eslintrc.json at main · codefellows/seattle-code-201d99
