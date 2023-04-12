@@ -132,7 +132,7 @@ let Lima = new Store('Lima', 2, 16, 4.6);
 // array key to create the footer!
 let storeArray = [Seattle, Tokyo, Dubai, Paris, Lima];
 /**These lines of code call various functions to render the table displaying the cookies sales data for each store location. Here's a breakdown of what each function call does:renderHours();:
- *  This function call renders the hours and the "Daily Location Total" header in the table. It creates and appends table cells (td) for each hour and the "Daily Location Total" header to the tableElement.
+ *This function call renders the hours and the "Daily Location Total" header in the table. It creates and appends table cells (td) for each hour and the "Daily Location Total" header to the tableElement.
 Seattle.tableRender();: This function call renders the table row for the Seattle store. It calculates the number of cookies sold per hour and the daily total for the Seattle store, 
 then creates and appends table cells (td) containing the data to the tableElement. */
 renderHours();
