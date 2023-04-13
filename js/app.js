@@ -70,7 +70,7 @@ Math.floor(Math.random() * (this.max - this.min + 1) + this.min): This rounds do
 //let total = document.createElement('td');: This line creates a new table cell (td) element using the document.createElement() method and stores the created element in the variable total.
       let total = document.createElement('td');
 //total.textContent = this.dailyTotal;: This line sets the textContent property of the total table cell to the value of this.dailyTotal. The dailyTotal property represents the total number of cookies sold by the store in a day.      
-      total.textContent = this.dailyTotal;
+      total.textContent = this.dailyTotal
  //firstRow.appendChild(total);: This line appends the total table cell to the firstRow table row. This effectively adds the store's daily total number of cookies sold as the last cell in the row.     
       firstRow.appendChild(total);
     }
@@ -82,6 +82,7 @@ function renderHours(){
   let tr = document.createElement('tr');
 // This line appends the empty tdElem table cell to the tableElement, which is the HTML table element in the DOM.  
   tableElement.appendChild(tr);
+  let thElem = document.createElement('th');
  tr.appendChild(thElem);
  // This for loop iterates over the hours array. The loop counter i represents the index of the current hour being processed. 
  //Inside the loop, a new table cell (td) element is created and stored in the variable tdElem.
