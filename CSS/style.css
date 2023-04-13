@@ -1,25 +1,28 @@
 *{
   box-sizing: border-box;
 }
+
 header {
-  background-color: rgb(0, 54, 108);
+  background-color: rgb(240, 34, 34);
 }
+
+main {
+  background-color: rgb(135, 9, 9);
+}
+
+body {
+  background-color: rgb(239, 164, 164);
+}
+
 nav {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
 }
-h3 {
-  text-align: center;
-  margin: auto;
-  font-size: 5rem;
-}
-main {
-  background-color:light gray;
-}
-body {
-  background-color:light gray;
+
+nav a{
+  height: 70px;
 }
 
 ul {
@@ -29,9 +32,11 @@ ul {
   overflow: hidden;
   background-color: #333;
 }
+
 li {
   float: left;
 }
+
 li a {
   display: block;
   color: white;
@@ -39,52 +44,72 @@ li a {
   padding: 14px 60px;
   text-decoration: none;
 }
+
 li a:hover {
   background-color: #111;
 }
+
 main > section {
   width: 960px;
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   margin: auto;
   margin-top: 30px;
 }
-section {
-  border: 3px solid rgb(0, 255, 166);
-  display: inline-block;
-  width: 172px;
+
+article a {
+  background-color: #333;
+  float: left;
+  display: block;
+  color: white;
+  text-align: left;
+  padding: 14px 16px;
+  text-decoration: none;
 }
+
+article a:hover {
+  background-color: #111;
+}
+
 
 main img {
   margin-bottom: 30px;
 }
+
 footer {
-  background-color: rgba(0, 128, 128, 0.325);
+  background-color: beige;
   height: 100px;
 }
+
 article {
-  border: 3px solid rgb(0, 19, 128);
-  text-align: center;
-  margin: auto;
-
+  width: 450px;
 }
+
 article section {
-
+  height: 320px;
+  overflow: auto;
 }
+
+/* table code */
 table, td, th {
   border: 1px solid rgb(112, 159, 165);
 }
-table {
-  margin: auto;
-  text-align: center;
-  margin-top: 30px;
-}
+
 td, th {
   padding: 1rem;
 }
-th {
+
+thead th {
   font-weight: bold;
 }
+
 tfoot {
   background-color: rgba(112, 159, 165, .1);
+}
+
+table {
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
 }
