@@ -1,13 +1,52 @@
 // Enforces strict mode to prevent using undeclared variables or other unsafe actions
 "use strict";
 
+console.log('form');
+let handleSubmit = function(event) {
+  event.preventDefault();
+  console.log(event.target.storeName.value);
+  console.log(event.tareget.minPerHour.value);
+  console.log(event.target.minPerHour.value);
+  console.log(event.target.averPerHour.value);
+  
+  let name = event.target.storeName.value;
+  let min = parsInt(event.target.storeHour.value);
+  let max = parsInt(event.target.storeSold.value);
+  let avg = parsInt(event.target.soldHour.value);
+  
+  let storeInfo =[name, min, max, avg]
+  
+  let newStore = new Store(
+    name,
+    min,
+    max,
+    avg,
+    name,
+  );
+  storeArray.push(newStore);
+
+  newStore.tableRender();
+  storeTotal.tableRender();
+
+}
+
+
+
+
+
+
+
+
+
+
+
 // Sample store data with min/max hourly customers and average cookies per customer
 
 //Array for hours of ....
 let hours = ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm']
 
 // Get the HTML element with ID "storeProfiles" to later add table rows and cellsconst tableElement = document.getElementById("storeProfiles");
-const tableElement = document.getElementById("storeProfiles");
+const tableElement = document.getElementById("Table");
 // Store constructor function, creates an object with store data and related methods
 function Store(name, min, max, avg) {
     this.name = name;
@@ -80,7 +119,7 @@ function renderHours(){
 // This line creates an empty table cell (td) element using the document.createElement() method and stores it in the variable tdElem. This empty cell is used as a placeholder for the top-left corner of the table.  
   let tr = document.createElement('tr');
 // This line appends the empty tdElem table cell to the tableElement, which is the HTML table element in the DOM.  
-  tableElement.appendChild(tr);
+tableElement.appendChild(tr);
   let thElem = document.createElement('th');
  tr.appendChild(thElem);
  // This for loop iterates over the hours array. The loop counter i represents the index of the current hour being processed. 
