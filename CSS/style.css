@@ -59,7 +59,7 @@ main > section {
 }
 
 article a {
-  background-color: #333;
+  background-color: #ee6d6d;
   float: left;
   display: block;
   color: white;
@@ -69,7 +69,7 @@ article a {
 }
 
 article a:hover {
-  background-color: #111;
+  background-color: #ff1313;
 }
 
 
@@ -78,7 +78,7 @@ main img {
 }
 
 footer {
-  background-color: beige;
+  background-color: rgb(226, 106, 106);
   height: 100px;
 }
 
