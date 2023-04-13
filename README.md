@@ -10,5 +10,7 @@ Links and Resources
 submission PR
 Any Links you used as reference
 Lighthouse Accessibility Report Score
-Lab01:
-![lighthouse_Lab:8a]()
+Lab01: Worked with Dan and Anthon
+![lighthouse_Lab:8a](images/lab08.png)
+Lab09: Worked with Anthony and Dan
+![Lighthouse_Lab:9](images/lab09.png)
