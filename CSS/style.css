@@ -1,22 +1,25 @@
-
- 
-
 *{
   box-sizing: border-box;
 }
-
 header {
-  background-color: darkgray;
-  
+  background-color: rgb(0, 54, 108);
 }
- nav  {
- display: flex;
- justify-content: center;
- align-items: center;
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
-
-nav a {
-  height: auto;
+h3 {
+  text-align: center;
+  margin: auto;
+  font-size: 5rem;
+}
+main {
+  background-color:light gray;
+}
+body {
+  background-color:light gray;
 }
 
 ul {
@@ -26,11 +29,9 @@ ul {
   overflow: hidden;
   background-color: #333;
 }
-
 li {
   float: left;
 }
-
 li a {
   display: block;
   color: white;
@@ -38,50 +39,52 @@ li a {
   padding: 14px 60px;
   text-decoration: none;
 }
-
 li a:hover {
   background-color: #111;
 }
-main {
-  background-color: gray;
-}
-body {
-  background-color: gray;
-}
 main > section {
-  background-color: gray;
   width: 960px;
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   margin: auto;
   margin-top: 30px;
+}
+section {
+  border: 3px solid rgb(0, 255, 166);
+  display: inline-block;
+  width: 172px;
 }
 
 main img {
   margin-bottom: 30px;
 }
-
 footer {
-  background-color: beige;
+  background-color: rgba(0, 128, 128, 0.325);
   height: 100px;
 }
-
 article {
-  width: 450px;
-}
+  border: 3px solid rgb(0, 19, 128);
+  text-align: center;
+  margin: auto;
 
+}
 article section {
-  height: 320px;
-  overflow: auto;
-}
 
-article a {
-  background-color: #333;
-  float: left;
-  display: block;
-  color: white;
-  text-align: left;
-  padding: 14px 16px;
-  text-decoration: none;
+}
+table, td, th {
+  border: 1px solid rgb(112, 159, 165);
+}
+table {
+  margin: auto;
+  text-align: center;
+  margin-top: 30px;
+}
+td, th {
+  padding: 1rem;
+}
+th {
+  font-weight: bold;
+}
+tfoot {
+  background-color: rgba(112, 159, 165, .1);
 }
