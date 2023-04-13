@@ -78,19 +78,20 @@ Math.floor(Math.random() * (this.max - this.min + 1) + this.min): This rounds do
 
 //The renderHours() function is responsible for creating and appending table cells (td) to display the hours and the "Daily Location Total" header in the table. Here's a breakdown of the code:
 function renderHours(){
-//let tdElem = document.createElement('td') table ;: This line creates an empty table cell (td) element using the document.createElement() method and stores it in the variable tdElem. This empty cell is used as a placeholder for the top-left corner of the table.  
-  let tdElem = document.createElement('th');
-//tableElement.appendChild(tdElem);: This line appends the empty tdElem table cell to the tableElement, which is the HTML table element in the DOM.  
-  tableElement.appendChild(tdElem);
- //for(let i = 0; i < hours.length; i++){ ... }: This for loop iterates over the hours array. The loop counter i represents the index of the current hour being processed. 
+// This line creates an empty table cell (td) element using the document.createElement() method and stores it in the variable tdElem. This empty cell is used as a placeholder for the top-left corner of the table.  
+  let tr = document.createElement('tr');
+// This line appends the empty tdElem table cell to the tableElement, which is the HTML table element in the DOM.  
+  tableElement.appendChild(tr);
+ tr.appendChild(thElem);
+ // This for loop iterates over the hours array. The loop counter i represents the index of the current hour being processed. 
  //Inside the loop, a new table cell (td) element is created and stored in the variable tdElem.
 //The textContent property of the tdElem table cell is set to the value of hours[i], which represents the current hour in the iteration. The value is inserted as a template literal (${hours[i]}) to easily include it as a string.
 //The tdElem table cell, containing the current hour, is appended to the tableElement. 
  for(let i = 0; i < hours.length; i++){
-  let tr = document.createElement('tr');
-    let tdElem = document.createElement('td');
-    tdElem.textContent = `${hours[i]}`
-    tableElement.appendChild(tdElem);
+  
+    let thElem = document.createElement('th');
+    thElem.textContent = `${hours[i]}`
+    tr.appendChild(thElem);
   }
   //only makes total head off to the right
   let total = document.createElement('th');
@@ -98,7 +99,7 @@ function renderHours(){
 //The textContent property of the total table cell is set to the string "Daily Location Total". This will serve as the header for the column displaying the daily total of cookies sold for each location. 
   total.textContent = "Daily Location Total"
 //The total table cell is appended to the tableElement.  
-  tableElement.appendChild(total)
+  tr.appendChild(total)
 }
 
 //this will calculate the number of cookies for each hour
@@ -136,7 +137,6 @@ let storeArray = [Seattle, Tokyo, Dubai, Paris, Lima];
 Seattle.tableRender();: This function call renders the table row for the Seattle store. It calculates the number of cookies sold per hour and the daily total for the Seattle store, 
 then creates and appends table cells (td) containing the data to the tableElement. */
 renderHours();
-
 Seattle.tableRender();
 Tokyo.tableRender();
 Dubai.tableRender();
