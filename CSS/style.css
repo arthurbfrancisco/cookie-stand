@@ -41,25 +41,6 @@ nav li a:hover:not(.active) {
   background-color: #f11e1e;
 }
 
-table, td, th {
-  border: 1px solid rgb(0, 0, 0);
-}
-table {
-  margin: auto;
-  text-align: center;
-  margin-top: 30px;
-}
-td, th {
-  padding: 1rem;
-}
-th {
-  font-weight: bold;
-}
-tfoot {
-  background-color: rgba(71, 71, 71, 0.1);
-}
-
-
 
 
 
