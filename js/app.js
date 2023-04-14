@@ -13,16 +13,16 @@ let handleSubmit = function(event) {
 event.preventDefault();
  
   
-    // Get the value of the 'storeName' input field from the form
+// Get the value of the 'storeName' input field from the form
   let name = event.target.storeName.value;
-    // Get the value of the 'storeHour' input field from the form, and convert it to an integer
+// Get the value of the 'storeHour' input field from the form, and convert it to an integer
   let min = parseInt(event.target.storeHour.value);
-    // Get the value of the 'storeSold' input field from the form, and convert it to an integer
+// Get the value of the 'storeSold' input field from the form, and convert it to an integer
   let max = parseInt(event.target.storeSold.value);
-    // Get the value of the 'soldHour' input field from the form, and convert it to an integer
+// Get the value of the 'soldHour' input field from the form, and convert it to an integer
   let avg = parseInt(event.target.soldHour.value);
   
-      // Create a new instance of the 'Store' class with the values from the form
+// Create a new instance of the 'Store' class with the values from the form
   let newStore = new Store(
     name,
     min,
