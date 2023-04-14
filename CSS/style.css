@@ -15,67 +15,133 @@ body {
 }
 
 nav {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  align-items: center;
   background-color: #920404;
-  position: fixed;
-  top: 0;
-  width: 100%;
+}
+
+nav a {
+  height: 60px;
 }
 
 nav li {
   float: left;
 }
 
-nav li a {
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #e79999;
+}
+
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: rgb(236, 59, 59);
+  text-align: center;
+  padding: 14px 60px;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: #ea1717;
+}
+main > section {
+  width: 960px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-top: 30px;
+}
+
+article a {
+  background-color: #ec9494;
+  float: left;
   display: block;
   color: white;
-  text-align: center;
+  text-align: left;
   padding: 14px 16px;
   text-decoration: none;
 }
 
-nav li a:hover:not(.active) {
-  background-color: #f11e1e;
+article a:hover {
+  background-color: #111;
 }
 
+
+main img {
+  margin-bottom: 30px;
+}
+
+footer {
+  background-color: beige;
+  height: 100px;
+}
+
+article {
+  width: 450px;
+}
+
+article section {
+  height: 320px;
+  overflow: auto;
+}
+
+/* table code */
 table, td, th {
-  border: 1px solid rgb(0, 0, 0);
+  border: 1px solid rgb(112, 159, 165);
 }
-table {
-  margin: auto;
-  text-align: center;
-  margin-top: 30px;
-}
+
 td, th {
   padding: 1rem;
 }
-th {
+
+thead th {
   font-weight: bold;
 }
+
 tfoot {
-  background-color: rgba(71, 71, 71, 0.1);
+  background-color: rgba(112, 159, 165, .1);
 }
 
+table {
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
+}
 
+fieldset {
+	max-width: 500px;
+	padding: 20px 12px 10px 20px;
+	font: 13px Arial, Helvetica, sans-serif;
+}
 
+fieldset {
+  font-weight: bold;
+	font-style: italic;
+	border-bottom: 2px solid #ddd;
+	margin-bottom: 20px;
+	font-size: 15px;
+	padding-bottom: 3px;
+}
 
+fieldset label{
+  display: block;
+	margin: 0px 0px 15px 0px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+fieldset label > span{
+	width: 100px;
+	font-weight: bold;
+	float: left;
+	padding-top: 8px;
+	padding-right: 5px;
+}

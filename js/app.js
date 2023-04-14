@@ -1,44 +1,35 @@
 // Enforces strict mode to prevent using undeclared variables or other unsafe actions
 "use strict";
 
+let form = document.querySelector('form');
+
 console.log('form');
+
 let handleSubmit = function(event) {
+  
   event.preventDefault();
-  console.log(event.target.storeName.value);
-  console.log(event.tareget.minPerHour.value);
-  console.log(event.target.minPerHour.value);
-  console.log(event.target.averPerHour.value);
+ 
   
   let name = event.target.storeName.value;
   let min = parsInt(event.target.storeHour.value);
   let max = parsInt(event.target.storeSold.value);
   let avg = parsInt(event.target.soldHour.value);
   
-  let storeInfo =[name, min, max, avg]
-  
-  let newStore = new Store(
+    let newStore = new Store(
     name,
     min,
     max,
     avg,
     name,
   );
-  storeArray.push(newStore);
-
+  console.log(newStore);
   newStore.tableRender();
   storeTotal.tableRender();
-
+  storeArray.push(newStore);
+  storeTotal();
 }
 
-
-
-
-
-
-
-
-
-
+//form.addEventListener('Submit', handleSubmit);
 
 // Sample store data with min/max hourly customers and average cookies per customer
 
@@ -78,7 +69,6 @@ Math.random() * (this.max - this.min + 1): This multiplies the random floating-p
       }
     };
  //In summary, this function renders a table row with the store's name as the first cell. It also calculates the number of cookies sold per hour for the store by calling this.calculateCookiesPerHour(). The remaining cells with the hourly sales data and daily total are not included in the code snippet you provided, but they would be added in the continuation of this function.
-   
 //This function, tableRender, is responsible for rendering the data of a store object as a table row in an HTML table. It performs the following steps:
     this.tableRender = function(){
 //First, it calls the this.calculateCookiesPerHour() method, which calculates the number of cookies sold per hour for the store and updates the cookiesPerHourArray and dailyTotal properties.
@@ -100,7 +90,7 @@ Math.random() * (this.max - this.min + 1): This multiplies the random floating-p
         let firstElem = document.createElement('td');
 //The textContent property of the firstElem table cell is set to the value of this.cookiesPerHourArray[i]. This value represents the number of cookies sold during the hour corresponding to the current value of i. The value is inserted as a template literal (${this.cookiesPerHourArray[i]}) so that it can be easily included as a string.        
         firstElem.textContent = `${this.cookiesPerHourArray[i]}`
-//  The commented-out lines of code are not executed, but they show that previously the daily total was being calculated in this loop. However, this calculation has been moved to the calculateCookiesPerHour() function, so these lines are not needed anymore.
+//The commented-out lines of code are not executed, but they show that previously the daily total was being calculated in this loop. However, this calculation has been moved to the calculateCookiesPerHour() function, so these lines are not needed anymore.
 //The firstElem table cell, containing the number of cookies sold during the current hour, is appended to the firstRow table row.
         firstRow.appendChild(firstElem);
       }
@@ -117,50 +107,58 @@ Math.random() * (this.max - this.min + 1): This multiplies the random floating-p
 //The renderHours() function is responsible for creating and appending table cells (td) to display the hours and the "Daily Location Total" header in the table. Here's a breakdown of the code:
 function renderHours(){
 // This line creates an empty table cell (td) element using the document.createElement() method and stores it in the variable tdElem. This empty cell is used as a placeholder for the top-left corner of the table.  
-  let tr = document.createElement('tr');
+  let tdElem = document.createElement('td');
 // This line appends the empty tdElem table cell to the tableElement, which is the HTML table element in the DOM.  
-tableElement.appendChild(tr);
-  let thElem = document.createElement('th');
- tr.appendChild(thElem);
+//tableElement.appendChild(tdElem);
+  //let thElem = document.createElement('th');
+ //tr.appendChild(thElem);
  // This for loop iterates over the hours array. The loop counter i represents the index of the current hour being processed. 
- 
  for(let i = 0; i < hours.length; i++){
   
-    let thElem = document.createElement('th');
-    thElem.textContent = `${hours[i]}`
-    tr.appendChild(thElem);
+    let thElem = document.createElement('td');
+    total.textContent = `Daily Location Total`
+    tableElement.appendChild(total);
   }
   //only makes total head off to the right
-  let total = document.createElement('th');
+  let total = document.createElement('td');
 //After the loop, a new table cell (td) element is created and stored in the variable total.  
 //The textContent property of the total table cell is set to the string "Daily Location Total". This will serve as the header for the column displaying the daily total of cookies sold for each location. 
   total.textContent = "Daily Location Total"
 //The total table cell is appended to the tableElement.  
-  tr.appendChild(total)
+  tableElement.appendChild(total)
 }
 
 //this will calculate the number of cookies for each hour
 function storeTotal(){
-//for loop to loop through stores to add numebrs
+let footer = document.querySelector('tfoot');
+if (footer){
+  footer.innerHTML = '';
+}
+footer = document.createElement('tfoot');
+tableElement.appendChild(footer);
+//I need to add all numbers of each index of each city
+
 let timeTotal = document.createElement('td');
 timeTotal.textContent = "Total";
-tableElement.appendChild(timeTotal);
-//I need to add all numbers of each index of each city
-let hourly2 = 0;
+footer.appendChild(timeTotal);
+
+
+let totalOfTotals = 0;
 for(let i = 0; i < hours.length; i++){
   let hourly = 0;
   for(let j = 0; j < storeArray.length; j++){
     hourly += storeArray[j].cookiesPerHourArray[i];
-    hourly2 += storeArray[j].cookiesPerHourArray[i];
+    totalOfTotals += storeArray[j].cookiesPerHourArray[i];
   }
   let timeTotal2 = document.createElement('td');
   timeTotal2.textContent = `${hourly}`;
   tableElement.appendChild(timeTotal2);
 }
   let timeTotal3 = document.createElement('td');
-  timeTotal3.textContent = `${hourly2}`;
-  tableElement.appendChild(timeTotal3);
+  timeTotal3.textContent = `${totalOfTotals}`;
+  footer.appendChild(timeTotal3);
 }
+
 // Instances of our constructor
 let Seattle = new Store('Seattle', 23, 65, 6.3); //'new'   properties and inside are values argument
 let Tokyo = new Store('Tokyo', 3, 24, 1.2);
