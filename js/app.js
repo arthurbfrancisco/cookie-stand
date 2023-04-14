@@ -1,32 +1,45 @@
 // Enforces strict mode to prevent using undeclared variables or other unsafe actions
 "use strict";
-
+// Get the form element from the HTML document using querySelector
 let form = document.querySelector('form');
 
+// Log the form element to the console for debugging purposes
 console.log('form');
 
+// Declare a function called 'handleSubmit' that takes 'event' as an argument
 let handleSubmit = function(event) {
   
-  event.preventDefault();
+ // Prevent the form from submitting and refreshing the page
+event.preventDefault();
  
   
+    // Get the value of the 'storeName' input field from the form
   let name = event.target.storeName.value;
-  let min = parsInt(event.target.storeHour.value);
-  let max = parsInt(event.target.storeSold.value);
-  let avg = parsInt(event.target.soldHour.value);
+    // Get the value of the 'storeHour' input field from the form, and convert it to an integer
+  let min = parseInt(event.target.storeHour.value);
+    // Get the value of the 'storeSold' input field from the form, and convert it to an integer
+  let max = parseInt(event.target.storeSold.value);
+    // Get the value of the 'soldHour' input field from the form, and convert it to an integer
+  let avg = parseInt(event.target.soldHour.value);
   
-    let newStore = new Store(
+      // Create a new instance of the 'Store' class with the values from the form
+  let newStore = new Store(
     name,
     min,
     max,
     avg,
     name,
   );
+    // Log the newStore object to the console for debugging purposes
   console.log(newStore);
-  newStore.tableRender();
+   // Call the 'tableRender' method on the newStore object to display its data in a table
+   newStore.tableRender();
+    // Call the 'tableRender' method on the 'storeTotal' object to update the total row in the table
   storeTotal.tableRender();
+  // Add the newStore object to the 'storeArray' for future reference
   storeArray.push(newStore);
-  storeTotal();
+   // Call the 'storeTotal' function to update the total values in the table
+   storeTotal();
 }
 
 //form.addEventListener('Submit', handleSubmit);
