@@ -1,48 +1,16 @@
 // Enforces strict mode to prevent using undeclared variables or other unsafe actions
 "use strict";
-// Get the form element from the HTML document using querySelector
+// 1st step
+// Get the form element from the HTML document using querySelector, very first step
 let form = document.querySelector('form');
 
 // Log the form element to the console for debugging purposes
 console.log('form');
-
+// 2nd step: dd event listener
 // Declare a function called 'handleSubmit' that takes 'event' as an argument
-let handleSubmit = function(event) {
-  
- // Prevent the form from submitting and refreshing the page
-event.preventDefault();
- 
-  
-// Get the value of the 'storeName' input field from the form
-  let name = event.target.storeName.value;
-// Get the value of the 'storeHour' input field from the form, and convert it to an integer
-  let min = parseInt(event.target.storeHour.value);
-// Get the value of the 'storeSold' input field from the form, and convert it to an integer
-  let max = parseInt(event.target.storeSold.value);
-// Get the value of the 'soldHour' input field from the form, and convert it to an integer
-  let avg = parseInt(event.target.soldHour.value);
-  
-// Create a new instance of the 'Store' class with the values from the form
-  let newStore = new Store(
-    name,
-    min,
-    max,
-    avg,
-    name,
-  );
-    // Log the newStore object to the console for debugging purposes
-  console.log(newStore);
-   // Call the 'tableRender' method on the newStore object to display its data in a table
-   newStore.tableRender();
-    // Call the 'tableRender' method on the 'storeTotal' object to update the total row in the table
-  storeTotal.tableRender();
-  // Add the newStore object to the 'storeArray' for future reference
-  storeArray.push(newStore);
-   // Call the 'storeTotal' function to update the total values in the table
-   storeTotal();
-}
 
-//form.addEventListener('Submit', handleSubmit);
+// 3rd: step  the code is triggeres in response to an event
+
 
 // Sample store data with min/max hourly customers and average cookies per customer
 
@@ -59,12 +27,12 @@ function Store(name, min, max, avg) {
     this.avg = avg;
     this.cookiesPerHourArray = [];
     this.dailyTotal = 0;
-    this.generateRandomNumberOfC = function () {
+    this.generateRandomNumberOfCustomers = function () {
 /**Math.random(): This function generates a random floating-point number between 0 (inclusive) and 1 (exclusive).
 (this.max - this.min + 1): This calculates the range of possible integer values, by subtracting the minimum value from the maximum value and adding 1. This ensures that the maximum value is also included in the range.
 Math.random() * (this.max - this.min + 1): This multiplies the random floating-point number (from step 1) by the range of possible integer values (from step 2). The result is a random floating-point number between 0 (inclusive) and the range (exclusive).
  */
-      return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
+  return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
   };
   //In summary, this function calculates the number of cookies sold per hour for a given store and updates the store's cookiesPerHourArray and dailyTotal properties accordingly.
     this.calculateCookiesPerHour = function () {
@@ -72,7 +40,7 @@ Math.random() * (this.max - this.min + 1): This multiplies the random floating-p
  //Inside the loop, the function calls this.generateRandomNumberOfC() to generate a random number of customers for the current hour. This value is stored in the variable randomNumberOfCustomers.
        for (let i = 0; i < hours.length; i++) {
  //It then calculates the number of cookies sold in that hour by multiplying randomNumberOfCustomers by the average number of cookies sold per customer (this.avg). This value is rounded to the nearest whole number using Math.round and stored in the variable cookiesSoldPerHour.
-        let randomNumberOfCustomers = this.generateRandomNumberOfC();
+        let randomNumberOfCustomers = this.generateRandomNumberOfCustomers();
  //The calculated cookiesSoldPerHour value for the current hour is then added (pushed) to the cookiesPerHourArray. This array will store the number of cookies sold for each hour.
         let cookiesSoldPerHour = Math.round(randomNumberOfCustomers * this.avg);
  //The cookiesSoldPerHour value is also added to the dailyTotal property of the store object, which keeps a running total of the number of cookies sold throughout the day.
@@ -118,9 +86,14 @@ Math.random() * (this.max - this.min + 1): This multiplies the random floating-p
   }
 
 //The renderHours() function is responsible for creating and appending table cells (td) to display the hours and the "Daily Location Total" header in the table. Here's a breakdown of the code:
-function renderHours(){
+function renderHeader(){
 // This line creates an empty table cell (td) element using the document.createElement() method and stores it in the variable tdElem. This empty cell is used as a placeholder for the top-left corner of the table.  
-  let tdElem = document.createElement('td');
+ let trElem = document.createElement('tr');
+tableElement.appendChild(trElem);
+
+let tdElem = document.createElement('td');
+  tdElem.textContent = ''
+  trElem.appendChild(tdElem)
 // This line appends the empty tdElem table cell to the tableElement, which is the HTML table element in the DOM.  
 //tableElement.appendChild(tdElem);
   //let thElem = document.createElement('th');
@@ -128,32 +101,34 @@ function renderHours(){
  // This for loop iterates over the hours array. The loop counter i represents the index of the current hour being processed. 
  for(let i = 0; i < hours.length; i++){
   
-    let thElem = document.createElement('td');
-    total.textContent = `Daily Location Total`
-    tableElement.appendChild(total);
+    let thElem = document.createElement('th');
+    thElem.textContent=hours[i]
+    trElem.appendChild(thElem);
+    //tableElement.appendChld(total);
   }
-  //only makes total head off to the right
-  let total = document.createElement('td');
+     //only makes total head off to the right
+  let total = document.createElement('th');
 //After the loop, a new table cell (td) element is created and stored in the variable total.  
 //The textContent property of the total table cell is set to the string "Daily Location Total". This will serve as the header for the column displaying the daily total of cookies sold for each location. 
   total.textContent = "Daily Location Total"
 //The total table cell is appended to the tableElement.  
-  tableElement.appendChild(total)
+  trElem.appendChild(total)
 }
 
 //this will calculate the number of cookies for each hour
-function storeTotal(){
-let footer = document.querySelector('tfoot');
-if (footer){
-  footer.innerHTML = '';
+function renderFooter(){
+let footer1 = document.querySelector('tfoot');  // if there is a foooter exist if something there we will clear
+if (footer1){
+  footer1.innerHTML = ''; // clear in tfoot tag
 }
-footer = document.createElement('tfoot');
+let footer = document.createElement('tfoot');
 tableElement.appendChild(footer);
+let rowElem = document.createElement('tr');
 //I need to add all numbers of each index of each city
-
+footer.appendChild(rowElem);
 let timeTotal = document.createElement('td');
 timeTotal.textContent = "Total";
-footer.appendChild(timeTotal);
+rowElem.appendChild(timeTotal);
 
 
 let totalOfTotals = 0;
@@ -165,12 +140,50 @@ for(let i = 0; i < hours.length; i++){
   }
   let timeTotal2 = document.createElement('td');
   timeTotal2.textContent = `${hourly}`;
-  tableElement.appendChild(timeTotal2);
+  rowElem.appendChild(timeTotal2);
 }
   let timeTotal3 = document.createElement('td');
   timeTotal3.textContent = `${totalOfTotals}`;
-  footer.appendChild(timeTotal3);
+  rowElem.appendChild(timeTotal3);
 }
+
+   let handleSubmit = function(event) {
+    
+  
+  // Prevent the form from submitting and refreshing the page
+ event.preventDefault();
+  
+ // Get the value of the 'storeName' input field from the form
+   let name = event.target.name.value;
+ // Get the value of the 'storeHour' input field from the form, and convert it to an integer
+   let min = parseInt(event.target.min.value);
+ // Get the value of the 'storeSold' input field from the form, and convert it to an integer
+   let max = parseInt(event.target.max.value);
+ // Get the value of the 'soldHour' input field from the form, and convert it to an integer
+   let avg = parseFloat(event.target.average.value);
+ 
+ // Create a new instance of the 'Store' class with the values from the form
+   let newStore = new Store(
+     name,
+     min,
+     max,
+     avg,
+   );
+   event.target.name.value=null
+   event.target.min.value=null
+   event.target.max.value=null
+   event.target.average.value=null
+   // Log the newStore object to the console for debugging purposes
+   console.log(newStore);
+    // Call the 'tableRender' method on the newStore object to display its data in a table
+    newStore.tableRender();
+     // Call the 'tableRender' method on the 'storeTotal' object to update the total row in the table
+   // Add the newStore object to the 'storeArray' for future reference
+   storeArray.push(newStore);
+   console.log(storeArray)
+    // Call the 'storeTotal' function to update the total values in the table
+    renderFooter();
+   }
 
 // Instances of our constructor
 let Seattle = new Store('Seattle', 23, 65, 6.3); //'new'   properties and inside are values argument
@@ -184,11 +197,12 @@ let storeArray = [Seattle, Tokyo, Dubai, Paris, Lima];
  *This function call renders the hours and the "Daily Location Total" header in the table. It creates and appends table cells (td) for each hour and the "Daily Location Total" header to the tableElement.
 Seattle.tableRender();: This function call renders the table row for the Seattle store. It calculates the number of cookies sold per hour and the daily total for the Seattle store, 
 then creates and appends table cells (td) containing the data to the tableElement. */
-renderHours();
+renderHeader();
 Seattle.tableRender();
 Tokyo.tableRender();
 Dubai.tableRender();
 Paris.tableRender();
 Lima.tableRender();
-storeTotal();
+renderFooter();
+form.addEventListener('submit', handleSubmit);
 
