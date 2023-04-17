@@ -1,5 +1,7 @@
 // Enforces strict mode to prevent using undeclared variables or other unsafe actions
 "use strict";
+
+
 // 1st step
 // Get the form element from the HTML document using querySelector, very first step
 let form = document.querySelector('form');
@@ -8,12 +10,8 @@ let form = document.querySelector('form');
 console.log('form');
 // 2nd step: dd event listener
 // Declare a function called 'handleSubmit' that takes 'event' as an argument
-
 // 3rd: step  the code is triggeres in response to an event
-
-
 // Sample store data with min/max hourly customers and average cookies per customer
-
 //Array for hours of ....
 let hours = ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm']
 
@@ -205,4 +203,12 @@ Paris.tableRender();
 Lima.tableRender();
 renderFooter();
 form.addEventListener('submit', handleSubmit);
+
+//Nav drop down
+function openNav() {
+  document.getElementById("mySidepanel").style.width = "450px";
+}
+function closeNav() {
+  document.getElementById("mySidepanel").style.width = "0";
+}
 
